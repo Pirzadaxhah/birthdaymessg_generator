@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Message Generator</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Dark background */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('path_to_your_image.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Colorful box shadow */
+    color: #fff; /* White text */
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+input[type="text"], input[type="password"], button {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    color: #fff; /* White text */
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: #ccc; /* Lighter text */
+}
+
+button {
+    background-color: #e74c3c; /* Red button */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+p {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#background-image {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+   
+    
+    
+
+    
+}
+</style>
+<script>
+    
+function generateBirthdayMessage(name) {
+    var templates = [
+        `Happy Birthday, ${name}! 🎉`,
+        `Allah tumhein dher sari khusiyaa dein, ${name}!`,
+        `Ghareebi buri sha ve terii fav line haan aur merii bhii, ${name}!`,
+        `Have You lost baby girl oh noo sorry birthday Girl, ${name}!`,
+        
+        `jo haan tera lab jaein gaa ker ke koi bahana, ${name}!`,
+        `Yahah har koi kisi na kisi ke liye khass haan, ${name}!`,
+        `Tum khush rahoo meri jan hamesha , ${name}!`,
+        `tera wajah se mein ab har kisi ke dandth dekhtii hoon ha ha ha, ${name}!`,
+        `tum se baatein kerna mera fav kaam haan, ${name}!`,
+        `Tum hastii raho khush rahoo aur tumara dance wah wah wah , ${name}!',
+                  
+
+
+
+
+
+    ];
+
+    var message = templates[Math.floor(Math.random() * templates.length)];
+    return message;
+}
+
+function generateMessage() {
+    var name = document.getElementById("name").value;
+    var output = document.getElementById("output");
+
+    var birthdayMessage = generateBirthdayMessage(name);
+    output.textContent = birthdayMessage;
+}
+
+function checkCredentials() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === "mehak" && password === "243") {
+        document.getElementById("loginMessage").textContent = "Welcome, Mehak!";
+        document.getElementById("generator").style.display = "block";
+    } else {
+        document.getElementById("loginMessage").textContent = "Invalid username or password.";
+        document.getElementById("generator").style.display = "none";
+    }
+}
+</script>
+</head>
+<body>
+    
+<div class="container">
+    <h1>vede wala birthday from Kanka !!</h1>
+    <div id="login">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" placeholder="Enter username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" placeholder="Enter password"><br>
+        <button type="button" onclick="checkCredentials()">Login</button>
+        <p id="loginMessage"></p>
+    </div>
+    <div id="background-image">
+        <img src="birday.gif" alt="">
+    </div>
+    <div id="generator" style="display: none;">
+        <form>
+            <label for="name">Friend's Name:</label><br>
+            <input type="text" id="name" placeholder="Naam likh Apna "><br>
+            <button type="button" onclick="generateMessage()">Generate Message</button>
+        </form>
+        <p id="output"></p>
+    </div>
+</div>
+</body>
+</html>
